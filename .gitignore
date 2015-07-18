@@ -1,0 +1,6 @@
+/.ackrc
+/.build/
+!/.gitignore
+/.latest
+/Pod-Elemental-Transformer-Verbatim-*/
+/Pod-Elemental-Transformer-Verbatim-*.tar.gz
