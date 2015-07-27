@@ -20,6 +20,9 @@ has format_name => (
     default => 'verbatim',
 );
 
+## TODO? customize the number of columns used for indenting
+sub indent_level { 4 }
+
 sub transform_node
 {
     my ($self, $node) = @_;
@@ -54,7 +57,7 @@ sub _make_verbatim
         if (length $para->content)
         {
             push @replacements, Pod::Elemental::Element::Pod5::Verbatim->new({
-                content => join("\n", map { '    ' . $_ } split(/\n/, $para->content)),
+                content => join("\n", map { ' ' x $self->indent_level . $_ } split(/\n/, $para->content)),
               });
         }
     }
@@ -130,6 +133,8 @@ processed by this transformer.
 Given a pod document object, returns the object with all its children with
 C<:verbatim> directives removed and appropriate content replaced with
 L<Pod::Elemental::Element::Pod5::Verbatim> objects.
+
+=for Pod::Coverage indent_level
 
 =head1 SUPPORT
 
