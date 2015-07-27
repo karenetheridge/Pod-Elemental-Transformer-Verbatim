@@ -42,27 +42,16 @@ sub _make_verbatim
 {
     my ($self, $parent) = @_;
 
-    # TODO: we can make this nicer with a simple map.
-    my @replacements;
-
-    PARA: for my $para (@{ $parent->children }) {
-        unless ($para->isa('Pod::Elemental::Element::Pod5::Ordinary')) {
-            push @replacements, $self->__is_xformable($para)
-                ? $self->_make_verbatim($para)
-                : $para;
-
-            next PARA;
-        }
-
-        if (length $para->content)
-        {
-            push @replacements, Pod::Elemental::Element::Pod5::Verbatim->new({
+    return map {
+        my $para = $_;
+        !$para->isa('Pod::Elemental::Element::Pod5::Ordinary')
+            ? ($self->__is_xformable($para) ? $self->_make_verbatim($para) : $para)
+            : length $para->content
+            ? Pod::Elemental::Element::Pod5::Verbatim->new({
                 content => join("\n", map { ' ' x $self->indent_level . $_ } split(/\n/, $para->content)),
-              });
-        }
-    }
-
-    return @replacements;
+              })
+            : ();
+    } @{ $parent->children };
 }
 
 # from ::List
