@@ -5,7 +5,7 @@ package Pod::Elemental::Transformer::Verbatim;
 # KEYWORDS: pod transformer verbatim literal indent code text
 # vim: set ts=8 sts=4 sw=4 tw=115 et :
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 use Moose;
 with 'Pod::Elemental::Transformer' => { -version => '0.101620' };
