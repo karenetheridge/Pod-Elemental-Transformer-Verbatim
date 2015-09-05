@@ -125,14 +125,6 @@ L<Pod::Elemental::Element::Pod5::Verbatim> objects.
 
 =for Pod::Coverage indent_level
 
-=head1 SUPPORT
-
-=for stopwords irc
-
-Bugs may be submitted through L<the RT bug tracker|https://rt.cpan.org/Public/Dist/Display.html?Name=Pod-Elemental-Transformer-Verbatim>
-(or L<bug-Pod-Elemental-Transformer-Verbatim@rt.cpan.org|mailto:bug-Pod-Elemental-Transformer-Verbatim@rt.cpan.org>).
-I am also usually active on irc, as 'ether' at C<irc.perl.org>.
-
 =head1 SEE ALSO
 
 =for :list
