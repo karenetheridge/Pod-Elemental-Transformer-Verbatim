@@ -1,9 +1,9 @@
 use strict;
 use warnings;
 package Pod::Elemental::Transformer::Verbatim;
+# vim: set ts=8 sts=4 sw=4 tw=115 et :
 # ABSTRACT: Transform :verbatim regions into verbatim paragraphs
 # KEYWORDS: pod transformer verbatim literal indent code text
-# vim: set ts=8 sts=4 sw=4 tw=115 et :
 
 our $VERSION = '0.002';
 
