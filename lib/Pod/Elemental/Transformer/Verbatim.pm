@@ -48,7 +48,7 @@ sub _make_verbatim
             ? ($self->__is_xformable($para) ? $self->_make_verbatim($para) : $para)
             : length $para->content
             ? Pod::Elemental::Element::Pod5::Verbatim->new({
-                content => join("\n", map { ' ' x $self->indent_level . $_ } split(/\n/, $para->content)),
+                content => join("\n", map ' ' x $self->indent_level.$_, split(/\n/, $para->content)),
               })
             : ();
     } @{ $parent->children };
